@@ -9,7 +9,7 @@ const config = {
   title: "My Site",
   tagline: "Dinosaurs are cool",
   url: "https://meisoff.github.io/",
-  baseUrl: "/",
+  baseUrl: "/docusaurus-template-openapi-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
