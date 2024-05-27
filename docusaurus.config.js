@@ -150,6 +150,7 @@ const config = {
             outputDir: "docs/nopaper-api",
             downloadUrl:
                 "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+            hideSendButton: true,
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
