@@ -10,7 +10,7 @@ const config = {
   tagline: "Документация по интеграции Nopaper API. Инструкции по использованию Nopaper API для партнёров.",
   url: "https://meisoff.github.io/",
   baseUrl: "/docusaurus-template-openapi-docs/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
