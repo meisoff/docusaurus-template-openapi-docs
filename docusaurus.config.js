@@ -8,16 +8,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Nopaper Dev Portal",
   tagline: "Документация по интеграции Nopaper API. Инструкции по использованию Nopaper API для партнёров.",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://meisoff.github.io/",
+  baseUrl: "/docusaurus-template-openapi-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Nopaper", // Usually your GitHub org/user name.
+  projectName: "Nopaper-API", // Usually your repo name.
 
   presets: [
     [
