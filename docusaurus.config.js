@@ -6,18 +6,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://meisoff.github.io/",
-  baseUrl: "/docusaurus-template-openapi-docs/",
+  title: "Nopaper Dev Portal",
+  tagline: "Документация по интеграции Nopaper API. Инструкции по использованию Nopaper API для партнёров.",
+  url: "https://your-docusaurus-test-site.com",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "meisoff", // Usually your GitHub org/user name.
-  projectName: "docusaurus-template-openapi-docs", // Usually your repo name.
+  organizationName: "facebook", // Usually your GitHub org/user name.
+  projectName: "docusaurus", // Usually your repo name.
 
   presets: [
     [
@@ -29,7 +29,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+              "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+              "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -48,90 +48,95 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      docs: {
-        sidebar: {
-          hideable: true,
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+      ({
+        docs: {
+          sidebar: {
+            hideable: true,
+          },
         },
-      },
-      navbar: {
-        title: "My Site",
-        logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+        navbar: {
+          logo: {
+            alt: "Nopaper logo",
+            src: "img/logo.svg",
+          },
+          items: [
+            {
+              label: "Сценарии",
+              position: "left",
+              to: "/docs/scenarios"
+            },
+            {
+              label: "API",
+              position: "left",
+              to: "/docs/nopaper-api",
+            },
+            {
+              href: "https://github.com/meisoff/docusaurus",
+              label: "GitHub",
+              position: "right",
+            },
+          ],
         },
-        items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            label: "Petstore API",
-            position: "left",
-            to: "/docs/category/petstore-api",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
-      },
-      footer: {
-        style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php"],
-      },
-    }),
+        footer: {
+          style: "light",
+          links: [
+            {
+              title: "Документация",
+              items: [
+                {
+                  label: "Сценарии интеграции",
+                  to: "/docs/scenarios",
+                },
+                {
+                  label: "Nopaper API",
+                  to: "/docs/nopaper-api",
+                },
+              ],
+            },
+            {
+              title: "Community",
+              items: [
+                {
+                  label: "Stack Overflow",
+                  href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                },
+                {
+                  label: "Discord",
+                  href: "https://discordapp.com/invite/docusaurus",
+                },
+                {
+                  label: "Twitter",
+                  href: "https://twitter.com/docusaurus",
+                },
+              ],
+            },
+            {
+              title: "More",
+              items: [
+                {
+                  label: "Blog",
+                  to: "/blog",
+                },
+                {
+                  label: "GitHub",
+                  href: "https://github.com/facebook/docusaurus",
+                },
+              ],
+            },
+          ],
+          copyright: `Copyright © ${new Date().getFullYear()} Nopaper.`,
+        },
+        prism: {
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+          additionalLanguages: ["ruby", "csharp", "php"],
+        },
+        colorMode: {
+          defaultMode: 'light',
+          disableSwitch: true
+        }
+      }),
 
   plugins: [
     [
@@ -141,10 +146,10 @@ const config = {
         docsPluginId: "classic",
         config: {
           petstore: {
-            specPath: "examples/petstore.yaml",
-            outputDir: "docs/petstore",
+            specPath: "examples/openapi.yaml",
+            outputDir: "docs/nopaper-api",
             downloadUrl:
-              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+                "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
