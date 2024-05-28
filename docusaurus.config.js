@@ -127,6 +127,14 @@ const config = {
           ],
           copyright: `Copyright © ${new Date().getFullYear()} Nopaper.`,
         },
+        zoom: {
+          selector: '.markdown :not(a) > img:not(.no-zoom)',
+          background: {
+            light: 'rgba(240, 240, 240, 0.9)',
+            dark: 'rgb(50, 50, 50, 0.9)',
+          },
+          config: {},
+        },
         prism: {
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
@@ -135,10 +143,11 @@ const config = {
         colorMode: {
           defaultMode: 'light',
           disableSwitch: true
-        }
+        },
       }),
 
   plugins: [
+    "docusaurus-plugin-image-zoom",
     [
       "docusaurus-plugin-openapi-docs",
       {
@@ -157,7 +166,7 @@ const config = {
           },
         },
       },
-    ],
+    ]
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],
