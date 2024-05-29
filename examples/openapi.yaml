@@ -7,85 +7,29 @@ info:
   description: Документация по интегации с Nopaper API
   version: '2.0'
 tags:
-  - name: SigningExternal
-    description: Контроллер для взаимодействия с сертификатами выданными концентраторами
-  - name: SigningPCExternal
-    description: Контроллер для взаимодействия с сертификатами выданными концентраторами
-  - name: CertificatePCSmsExternal
-    description: Контроллер для взаимодействия с сертификатами PC Sms
-  - name: CertificatePCServerExternal
-    description: Контроллер для взаимодействия с сертификатами PC Server
-  - name: CertificatePCExternal
-    description: Контроллер для взаимодействия с сертификатами PC Server
-  - name: CertificateItmHandbookExternal
-    description: Контроллер для работы с справочной информацией УЦ Itm
-  - name: CertificateMyDssItmCsrExternal
-    description: Контроллер для работы с заявкой на выпуск сертификата Itm
-  - name: CertificateMyDssItmCsrFileExternal
-    description: Контроллер для работы с файлами связанными с заявкой на выпуск сертификата Itm
-  - name: CertificateMyDssItmExternal
-    description: Контроллер для взаимодействия с сертификатами Itm
-  - name: ProfileFlExternal
-    description: Контроллер для работы с профилем ФЛ
-  - name: HubVacationSettingsExternal
-    description: Контроллер для работы с настройками отпуска
-  - name: HubVacationScheduleExternal
-    description: Контроллер для работы с графиком отпусков
-  - name: HubVacationAvailableDaysExternal
-    description: Контроллер для работы с доступными днями отпуска
-  - name: HubVacationExternal
-    description: Контроллер для работы с отпуском
-  - name: UnitHubKedoExternal
-    description: Контроллер связанный с отделами
-  - name: HubLnaExternal
-    description: Для работы с ЛНА
-  - name: HubExternal
-    description: Контроллер связанный с настройками концентратора
-  - name: HubEmployeeDefaultProfileExternal
-    description: Контроллер для установки дефолтного профиля
-  - name: HubEmployeeExternal
-    description: Контроллер для работы сотрудниками компании концентратора
-  - name: DocumentContainerExternal
-    description: Контроллер для контейнеров
-  - name: DocumentEmployeeExternal
-    description: Контроллер для работы с документом от лица сотрудника
-  - name: DocumentExternal
-    description: Контроллер для работы с документом
-  - name: DocumentFileExternal
-    description: Контроллер для работы с файлами документов
-  - name: DocumentHistoryExternal
-    description: Контроллер для работы с историей документа
-  - name: DocumentLinkExternal
-    description: Контроллер для генерации ссылок документа
-  - name: DocumentSigningExternal
-    description: Контроллер для подписи документов
-  - name: DocumentSigningPartyRootExternal
-    description: Контроллер для работы с корневой signing party
-  - name: DraftExternal
-    description: Контроллер для работы с черновиком
-  - name: CounterpartiesExternal
-    description: Контроллер для получения списка контрагентов
-  - name: ContainerExternal
-    description: Контроллер для работы с контейнером
-  - name: CompanyExternal
-    description: Контроллер для работы с компаниями
-  - name: VerifiedCompanyExternal
-    description: Контроллер для работы с верифицированной компанией
-  - name: EmployeeDefaultProfileExternal
-    description: Контроллер для установки дефолтного профиля
-  - name: EmployeeVerifiedCompanyExternal
-    description: Контроллер для работы с сотрудниками верифицированной компании
-  - name: CabinetExternal
-    description: REST API для доступа к кабинетам Nocode через npp-sado-api
-  - name: AmoCrmExternal
-    description: Контроллер для работы с компаниями
-  - name: DebugExternal
-    description: Контроллер для тестирования external запросов
+  - name: Электронная подпись
+    description: Методы для работы с электронными подписями
+  - name: Клиенты
+    description: Методы для работы с физическими лицами
+  - name: График отпусков
+    description: Методы для работы с графиком отпусков
+  - name: Другие
+    description: Методы для работы с Nopaper
+  - name: ЛНА
+    description: Методы для работы с локальными нормативными актами
+  - name: Call-back от Nopaper
+    description: Методы для работы с Call-back от Nopaper
+  - name: Сотрудники
+    description: Методы для работы с сотрудниками
+  - name: Пакет документов
+    description: Методы для работы с пакетом документов
+  - name: Компании
+    description: Методы для работы с компаниями
 paths:
   /api/v2/external/amo-crm/authorization/{clientId}/access-token:
     get:
       tags:
-        - AmoCrmExternal
+        - Другие
       summary: Получить акцес-токен для авторизации в амо-срм
       parameters:
         - name: clientId
@@ -133,7 +77,7 @@ paths:
   /api/v2/external/cabinet/{alias}/user/list:
     get:
       tags:
-        - CabinetExternal
+        - Другие
       summary: Получение списка пользователей кабинета Nocode
       parameters:
         - name: alias
@@ -176,7 +120,7 @@ paths:
   /api/v2/external/certificate/itm/handbook/region/list:
     get:
       tags:
-        - CertificateItmHandbookExternal
+        - Электронная подпись
       summary: Получение списка регионов
       responses:
         '200':
@@ -218,7 +162,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/profile:
     put:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Заполнить информацию о профиле пользователя
       parameters:
         - name: certificateId
@@ -267,7 +211,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/identification-point/{identificationPointId}:
     put:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Выбрать идентификационный пункт
       parameters:
         - name: certificateId
@@ -307,7 +251,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/payment-receiver:
     put:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Подтвердить оплату со стороны получателя
       parameters:
         - name: certificateId
@@ -341,7 +285,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/info:
     get:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Получение информации о заявке на выпуск сертификата
       parameters:
         - name: certificateId
@@ -391,7 +335,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/confirm:
     post:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Подтвердить окончание заполнения заявки
       parameters:
         - name: certificateId
@@ -425,7 +369,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/identification-profile:
     post:
       tags:
-        - CertificateMyDssItmCsrExternal
+        - Электронная подпись
       summary: Завершить верификацию пользователя
       parameters:
         - name: certificateId
@@ -483,7 +427,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/file/list:
     put:
       tags:
-        - CertificateMyDssItmCsrFileExternal
+        - Электронная подпись
       summary: Прикрепление файлов к заявке
       parameters:
         - name: certificateId
@@ -557,7 +501,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/file/{fileId}:
     delete:
       tags:
-        - CertificateMyDssItmCsrFileExternal
+        - Электронная подпись
       summary: Удаление файлов из заявки
       parameters:
         - name: certificateId
@@ -597,7 +541,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/file/comment:
     get:
       tags:
-        - CertificateMyDssItmCsrFileExternal
+        - Электронная подпись
       summary: Получить комментарии к файлам прикрепленных к заявке
       parameters:
         - name: certificateId
@@ -647,7 +591,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss/{certificateId}/csr/file/oferta-template/download:
     get:
       tags:
-        - CertificateMyDssItmCsrFileExternal
+        - Электронная подпись
       summary: Скачать файл шаблона оферты
       parameters:
         - name: certificateId
@@ -697,7 +641,7 @@ paths:
   /api/v2/external/certificate/itm/my-dss:
     post:
       tags:
-        - CertificateMyDssItmExternal
+        - Электронная подпись
       summary: Создание сертификата
       requestBody:
         content:
@@ -762,7 +706,7 @@ paths:
   /api/v2/external/certificate/pay-control/pc:
     post:
       tags:
-        - CertificatePCExternal
+        - Электронная подпись
       summary: Создание сертификата
       description: "Концентратор может выпустить серт PC любому пользователю<br />\r\nhttps://confluence.artsofte.ru/pages/viewpage.action?pageId=117543722"
       parameters:
@@ -822,7 +766,7 @@ paths:
   /api/v2/external/certificate/pay-control/pc-server:
     post:
       tags:
-        - CertificatePCServerExternal
+        - Электронная подпись
       summary: Создание сертификата
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906647
       parameters:
@@ -881,7 +825,7 @@ paths:
   /api/v2/external/certificate/pay-control/pc-sms:
     post:
       tags:
-        - CertificatePCSmsExternal
+        - Электронная подпись
       summary: Создание сертификата
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=131499418
       parameters:
@@ -945,7 +889,7 @@ paths:
   /api/v2/external/company:
     post:
       tags:
-        - CompanyExternal
+        - Компании
       summary: Создание компании
       requestBody:
         content:
@@ -1001,7 +945,7 @@ paths:
   /api/v2/external/company/by-inn:
     get:
       tags:
-        - CompanyExternal
+        - Компании
       summary: Получение информации о компании по её ИНН
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904821
       parameters:
@@ -1050,7 +994,7 @@ paths:
   /api/v2/external/company/search/list:
     get:
       tags:
-        - CompanyExternal
+        - Компании
       summary: Получение списка компаний по фильтрам
       parameters:
         - name: Inn
@@ -1114,7 +1058,7 @@ paths:
   /api/v2/external/container/{containerId}/verify:
     post:
       tags:
-        - ContainerExternal
+        - Электронная подпись
       summary: Проверка подписей
       description: https://confluence.artsofte.ru/x/mZBVCg
       parameters:
@@ -1171,7 +1115,7 @@ paths:
   /api/v2/external/counterparties/fl/list:
     get:
       tags:
-        - CounterpartiesExternal
+        - Компании
       summary: Получение списка контрагентов с типом ФЛ
       parameters:
         - name: SubstringSearch
@@ -1230,7 +1174,7 @@ paths:
   /api/v2/external/counterparties/company/list:
     get:
       tags:
-        - CounterpartiesExternal
+        - Компании
       summary: Получение списка контрагентов с типом ЮЛ
       parameters:
         - name: SubstringSearch
@@ -1289,7 +1233,7 @@ paths:
   /api/v2/external/external-api-debug/test-access:
     get:
       tags:
-        - DebugExternal
+        - Другие
       summary: тестовый рест
       responses:
         '200':
@@ -1315,7 +1259,7 @@ paths:
   /api/v2/external/document/{documentId}/sign/container/create:
     post:
       tags:
-        - DocumentContainerExternal
+        - Электронная подпись
       summary: Создать контейнер
       description: https://confluence.artsofte.ru/x/_sDCC
       parameters:
@@ -1365,7 +1309,7 @@ paths:
   /api/v2/external/document/{documentId}/employee/confirm:
     put:
       tags:
-        - DocumentEmployeeExternal
+        - Пакет документов
       summary: Согласовать документ
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113920340
       parameters:
@@ -1403,7 +1347,7 @@ paths:
   /api/v2/external/document/{documentId}/employee/reject:
     put:
       tags:
-        - DocumentEmployeeExternal
+        - Пакет документов
       summary: Отклонить документ от подписи
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113920336
       parameters:
@@ -1441,7 +1385,7 @@ paths:
   /api/v2/external/document/{documentId}/employee/delegate:
     post:
       tags:
-        - DocumentEmployeeExternal
+        - Пакет документов
       summary: Делегировать документ
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=138638416
       parameters:
@@ -1483,7 +1427,7 @@ paths:
   /api/v2/external/document:
     post:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Создание документа
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904613
       requestBody:
@@ -1541,7 +1485,7 @@ paths:
   /api/v2/external/document/draft:
     post:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Создание черновика документа
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=131501952
       requestBody:
@@ -1598,7 +1542,7 @@ paths:
   /api/v2/external/document/{documentId}/send:
     post:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Отправка документа по маршруту
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=131501970
       parameters:
@@ -1632,7 +1576,7 @@ paths:
   /api/v2/external/document/{documentId}/draft:
     delete:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Удалить черновик документа
       parameters:
         - name: documentId
@@ -1681,7 +1625,7 @@ paths:
   /api/v2/external/document/{documentId}:
     get:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Получение информации о документе
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904730
       parameters:
@@ -1726,7 +1670,7 @@ paths:
   /api/v2/external/document/list/by-filter:
     get:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Получение информации о входящих и исходящих документах по переданным параметрам
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113912914
       parameters:
@@ -1875,7 +1819,7 @@ paths:
   /api/v2/external/document/{documentId}/revoke:
     put:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Отозвать документ
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904755
       parameters:
@@ -1909,7 +1853,7 @@ paths:
   /api/v2/external/document/{documentId}/file-info/list:
     get:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Получение информации о файлах документа
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904749
       parameters:
@@ -1960,7 +1904,7 @@ paths:
   /api/v2/external/document/{documentId}/remind:
     post:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Отправление напоминаний о документе
       description: https://confluence.artsofte.ru/x/rlpDC
       parameters:
@@ -2017,7 +1961,7 @@ paths:
   /api/v2/external/document/{documentId}/comment/by-system:
     post:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Добавление системного комментария
       description: Комментарий будет добавлен для всех участников маршрута
       parameters:
@@ -2065,7 +2009,7 @@ paths:
   /api/v2/external/document/{documentId}/comment/list:
     get:
       tags:
-        - DocumentExternal
+        - Пакет документов
       summary: Получение комментариев к документу
       parameters:
         - name: documentId
@@ -2118,7 +2062,7 @@ paths:
   /api/v2/external/document/file/list:
     post:
       tags:
-        - DocumentFileExternal
+        - Пакет документов
       summary: Получение списка файлов по идентификаторам
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113913513
       requestBody:
@@ -2184,7 +2128,7 @@ paths:
   /api/v2/external/document/file/{fileId}/signature/list:
     get:
       tags:
-        - DocumentFileExternal
+        - Пакет документов
       summary: Получение информации о подписях для файла
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113913515
       parameters:
@@ -2234,7 +2178,7 @@ paths:
   /api/v2/external/document/{documentId}/file/{fileId}/signature/file/list:
     get:
       tags:
-        - DocumentFileExternal
+        - Пакет документов
       summary: Получение списка файлов подписи для файла документа
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=133469728
       parameters:
@@ -2291,7 +2235,7 @@ paths:
   /api/v2/external/document/{documentId}/file:
     post:
       tags:
-        - DocumentFileExternal
+        - Пакет документов
       summary: Добавление файла в пакет документов
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=131501959
       parameters:
@@ -2364,7 +2308,7 @@ paths:
   /api/v2/external/document/{documentId}/file/zip:
     get:
       tags:
-        - DocumentFileExternal
+        - Пакет документов
       summary: Получение архива с доказательной базой
       description: https://confluence.artsofte.ru/x/YzN9Cg
       parameters:
@@ -2415,7 +2359,7 @@ paths:
   /api/v2/external/document/history/list/by-filter:
     get:
       tags:
-        - DocumentHistoryExternal
+        - Пакет документов
       summary: Получение истории документа по фильтру
       parameters:
         - name: StartDateUtc
@@ -2487,7 +2431,7 @@ paths:
   /api/v2/external/document/{documentId}/link/kep:
     post:
       tags:
-        - DocumentLinkExternal
+        - Пакет документов
       summary: Создание ссылки документа для подписи КЭП (из анонимной зоны)
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=124658071
       parameters:
@@ -2537,7 +2481,7 @@ paths:
   /api/v2/external/document/{documentId}/link/sms:
     post:
       tags:
-        - DocumentLinkExternal
+        - Пакет документов
       summary: Создание ссылки документа для подписи СМС
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=131500349
       parameters:
@@ -2596,7 +2540,7 @@ paths:
   /api/v2/external/document/{documentId}/sign/pc-server/{certificateId}:
     put:
       tags:
-        - DocumentSigningExternal
+        - Электронная подпись
       summary: Подписать документ серверной подписью сотрудника
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113920338
       parameters:
@@ -2636,7 +2580,7 @@ paths:
   /api/v2/external/document/{documentId}/sign/pc-sms/{certificateId}:
     post:
       tags:
-        - DocumentSigningExternal
+        - Электронная подпись
       summary: Начать подписание документа pc-sms
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=158776041
       parameters:
@@ -2676,7 +2620,7 @@ paths:
   /api/v2/external/document/{documentId}/sign/pc-sms/{certificateId}/confirm:
     post:
       tags:
-        - DocumentSigningExternal
+        - Электронная подпись
       summary: Подверждение подписи контейнера для pc-sms
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=158776043
       parameters:
@@ -2730,7 +2674,7 @@ paths:
   /api/v2/external/document/{documentId}/signing-party/root:
     patch:
       tags:
-        - DocumentSigningPartyRootExternal
+        - Электронная подпись
       summary: Изменение разрешения изменения маршрута
       parameters:
         - name: documentId
@@ -2786,7 +2730,7 @@ paths:
   /api/v2/external/draft/{documentId}:
     patch:
       tags:
-        - DraftExternal
+        - Пакет документов
       summary: Редактирование черновика документа
       parameters:
         - name: documentId
@@ -2795,6 +2739,20 @@ paths:
           schema:
             type: integer
             format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Request.ChangeDraftRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Request.ChangeDraftRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Request.ChangeDraftRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Request.ChangeDraftRequest'
       responses:
         '204':
           description: No Content
@@ -2819,7 +2777,7 @@ paths:
   /api/v2/external/company/{companyId}/employee/default-profile:
     post:
       tags:
-        - EmployeeDefaultProfileExternal
+        - Сотрудники
       summary: Установка дефолтного профиля
       description: https://confluence.artsofte.ru/x/QZBVCg
       parameters:
@@ -2876,7 +2834,7 @@ paths:
   /api/v2/external/company/{companyId}/employee:
     post:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Добавление сотрудника в верифицированную компанию
       description: TODO Добавить ссылку на документацию
       parameters:
@@ -2948,7 +2906,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     patch:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Обновление инфы о сотруднике
       description: TODO Добавить ссылку на документацию
       parameters:
@@ -3020,7 +2978,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     delete:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Удаление сотрудника
       description: TODO Добавить ссылку на документацию
       parameters:
@@ -3058,7 +3016,7 @@ paths:
   /api/v2/external/company/{companyId}/employee/{userGuid}:
     get:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Получение информации о сотруднике
       description: TODO Добавить ссылку на документацию
       parameters:
@@ -3107,7 +3065,7 @@ paths:
   /api/v2/external/company/{companyId}/employee/list:
     get:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Получение списка сотрудников
       description: TODO Добавить ссылку на документацию
       parameters:
@@ -3161,7 +3119,7 @@ paths:
   /api/v2/external/company/{companyId}/employee/{userGuid}/head:
     patch:
       tags:
-        - EmployeeVerifiedCompanyExternal
+        - Сотрудники
       summary: Наделение или отзыв прав руководителя для сотрудника верифицированной компании
       parameters:
         - name: companyId
@@ -3203,7 +3161,7 @@ paths:
   /api/v2/external/hub/employee/{userGuid}/certificate/list:
     get:
       tags:
-        - HubEmployeeCertificate
+        - Электронная подпись
       summary: Получить список всех сертификатов пользователя
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906662
       parameters:
@@ -3247,7 +3205,7 @@ paths:
   /api/v2/external/hub/employee/default-profile:
     post:
       tags:
-        - HubEmployeeDefaultProfileExternal
+        - Сотрудники
       summary: Установка дефолтного профиля
       description: https://confluence.artsofte.ru/x/dI9VCg
       requestBody:
@@ -3297,7 +3255,7 @@ paths:
   /api/v2/external/hub/employee:
     post:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Добавление сотрудника в компанию концентратора
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906373
       requestBody:
@@ -3362,7 +3320,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     patch:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Обновление инфы о сотруднике
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113916732
       requestBody:
@@ -3427,7 +3385,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     delete:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Удаление сотрудника из компании концентратора
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113916736
       parameters:
@@ -3459,7 +3417,7 @@ paths:
   /api/v2/external/hub/employee/list:
     post:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Получение списка сотрудников концентратора
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906664
       parameters:
@@ -3508,7 +3466,7 @@ paths:
   /api/v2/external/hub/employee/list/extended:
     get:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Получение расширенного списка сотрудников концентратора
       description: https://confluence.artsofte.ru/x/FaTCC
       parameters:
@@ -3560,7 +3518,7 @@ paths:
   /api/v2/external/hub/employee/{userGuid}/head:
     patch:
       tags:
-        - HubEmployeeExternal
+        - Сотрудники
       summary: Наделение или отзыв прав руководителя для сотрудника концентратора
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113922694
       parameters:
@@ -3597,7 +3555,7 @@ paths:
   /api/v2/external/hub/employee/procuratory/list:
     get:
       tags:
-        - HubEmployeeProcuratory
+        - Сотрудники
       summary: Получение списка доверенностей сотрудника
       description: <remarks>https://confluence.artsofte.ru/pages/viewpage.action?pageId=146973717</remarks>
       parameters:
@@ -3650,7 +3608,7 @@ paths:
   /api/v2/external/hub/employee/procuratory/{procuratoryId}/file/{fileId}/download:
     get:
       tags:
-        - HubEmployeeProcuratory
+        - Сотрудники
       summary: Получение файла доверенности
       description: <remarks>https://confluence.artsofte.ru/pages/viewpage.action?pageId=146973717</remarks>
       parameters:
@@ -3702,7 +3660,7 @@ paths:
   /api/v2/external/hub/callback-uri:
     patch:
       tags:
-        - HubExternal
+        - Call-back от Nopaper
       summary: Изменение url концентратора
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=117547054
       parameters:
@@ -3734,7 +3692,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/document/list:
     get:
       tags:
-        - HubLnaDocument
+        - ЛНА
       summary: Получить список документов ЛНА
       description: https://confluence.artsofte.ru/x/bDN9Cg
       parameters:
@@ -3825,7 +3783,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/document-file/familiarization:
     get:
       tags:
-        - HubLnaDocumentFile
+        - ЛНА
       summary: Получить лист ознакомления
       description: https://confluence.artsofte.ru/x/ZjN9Cg
       parameters:
@@ -3875,8 +3833,9 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/document-file/{fileId}:
     get:
       tags:
-        - HubLnaDocumentFile
+        - ЛНА
       summary: Получить файл ЛНА по идентификатору файла
+      description: https://confluence.artsofte.ru/x/UKLCCg
       parameters:
         - name: lnaId
           in: path
@@ -3929,7 +3888,7 @@ paths:
   /api/v2/external/hub/kedo/lna:
     post:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Создать ЛНА
       description: https://confluence.artsofte.ru/x/5zB9Cg
       requestBody:
@@ -3995,7 +3954,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}:
     patch:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Обновить данные ЛНА
       description: https://confluence.artsofte.ru/x/9i59Cg
       parameters:
@@ -4051,7 +4010,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     get:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Получить детальную информацию ЛНА
       description: https://confluence.artsofte.ru/x/mTF9Cg
       parameters:
@@ -4101,7 +4060,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/send:
     post:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Отправить ЛНА на утверждение руководителю
       description: https://confluence.artsofte.ru/x/8DB9Cg
       parameters:
@@ -4151,7 +4110,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/employee/by-phone/{employeePhone}/send:
     post:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Отправить ЛНА на ознакомление сотруднику
       description: https://confluence.artsofte.ru/x/aDN9Cg
       parameters:
@@ -4207,7 +4166,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/revoke:
     post:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Отозвать ЛНА
       description: https://confluence.artsofte.ru/x/YDN9Cg
       parameters:
@@ -4241,7 +4200,7 @@ paths:
   /api/v2/external/hub/kedo/lna/list:
     get:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Получить список ЛНА компании
       description: https://confluence.artsofte.ru/x/7y59Cg
       responses:
@@ -4284,7 +4243,7 @@ paths:
   /api/v2/external/hub/kedo/lna/{lnaId}/file:
     post:
       tags:
-        - HubLnaExternal
+        - ЛНА
       summary: Добавление файла ЛНА
       description: https://confluence.artsofte.ru/x/6zB9Cg
       parameters:
@@ -4357,7 +4316,7 @@ paths:
   /api/v2/external/hub/kedo/vacation/employee/available-days/list:
     put:
       tags:
-        - HubVacationAvailableDaysExternal
+        - График отпусков
       summary: Импорт остатка дней отпуска
       requestBody:
         content:
@@ -4397,7 +4356,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/vacation/list:
     post:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Импорт отпусков
       description: "Все новые строки отпусков добавятся, все имеющиеся - перезапишутся.\r\nОпределение, есть уже отпуск в БД или нет будет происходить по колонкам: VacationScheduleId, EmployeeId, FromDateUtc, UntilDateUtc -\r\nесли в этих колонках значения совпадают с отпуском из запроса, значит существующий отпуск соответствует этому"
       requestBody:
@@ -4447,7 +4406,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     get:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Получить список отпусков сотрудника
       parameters:
         - name: EmployeePhone
@@ -4507,7 +4466,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/vacation:
     post:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Создать отпуск для сотрудника
       requestBody:
         content:
@@ -4563,7 +4522,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/vacation/{vacationId}:
     patch:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Редактировать отпуск сотрудника
       parameters:
         - name: vacationId
@@ -4634,7 +4593,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     delete:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Удалить отпуск сотрудника
       parameters:
         - name: vacationId
@@ -4667,7 +4626,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/vacation/check-new-dates:
     post:
       tags:
-        - HubVacationExternal
+        - График отпусков
       summary: Проверить новые даты отпуска
       requestBody:
         content:
@@ -4732,7 +4691,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule:
     post:
       tags:
-        - HubVacationScheduleExternal
+        - График отпусков
       summary: Создание графика отпусков
       requestBody:
         content:
@@ -4797,7 +4756,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/{vacationScheduleId}:
     put:
       tags:
-        - HubVacationScheduleExternal
+        - График отпусков
       summary: Обновление графика отпусков
       parameters:
         - name: vacationScheduleId
@@ -4868,7 +4827,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     delete:
       tags:
-        - HubVacationScheduleExternal
+        - График отпусков
       summary: Удаление графика отпусков
       parameters:
         - name: vacationScheduleId
@@ -4917,7 +4876,7 @@ paths:
   /api/v2/external/hub/kedo/vacation-schedule/list:
     get:
       tags:
-        - HubVacationScheduleExternal
+        - График отпусков
       summary: Получение списка графика отпусков
       parameters:
         - name: VacationScheduleId
@@ -4966,7 +4925,7 @@ paths:
   /api/v2/external/hub/kedo/vacation/settings:
     patch:
       tags:
-        - HubVacationSettingsExternal
+        - График отпусков
       summary: Обновление настроек отпуска компании
       requestBody:
         content:
@@ -5014,7 +4973,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     get:
       tags:
-        - HubVacationSettingsExternal
+        - График отпусков
       summary: Получение настроек отпуска компании
       responses:
         '200':
@@ -5056,7 +5015,7 @@ paths:
   /api/v2/external/profile-fl:
     post:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Создание профиля ФЛ
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113907222
       requestBody:
@@ -5112,7 +5071,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     patch:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Изменение информации о пользователе
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906628
       requestBody:
@@ -5162,7 +5121,7 @@ paths:
   /api/v2/external/profile-fl/user-guid/by-phone:
     get:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Получить идентификатор пользователя по номеру телефона
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904812
       parameters:
@@ -5211,7 +5170,7 @@ paths:
   /api/v2/external/profile-fl/{userGuid}/phone:
     get:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Получить номер телефона пользователя по ид.
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=133477320
       parameters:
@@ -5254,7 +5213,7 @@ paths:
   /api/v2/external/profile-fl/company/list:
     get:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Получение списка компаний, где пользователь является сотрудником
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113904825
       parameters:
@@ -5302,7 +5261,7 @@ paths:
   /api/v2/external/profile-fl/one-time-password:
     post:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Создание и отправка одноразового смс для авторизации пользователя
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113921834
       requestBody:
@@ -5352,7 +5311,7 @@ paths:
   /api/v2/external/profile-fl/{userGuid}/secret-code:
     post:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Создание одноразового секретного кода для авторизации пользователя
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=133473509
       parameters:
@@ -5401,7 +5360,7 @@ paths:
   /api/v2/external/profile-fl/with-any-phone:
     post:
       tags:
-        - ProfileFlExternal
+        - Клиенты
       summary: Создание профиля ФЛ с номером любой страны
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=133476582
       requestBody:
@@ -5458,7 +5417,7 @@ paths:
   /api/v2/external/certificate/list:
     get:
       tags:
-        - SigningExternal
+        - Электронная подпись
       summary: Получить список сертификатов пользователя
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=113906662
       parameters:
@@ -5501,7 +5460,7 @@ paths:
   /api/v2/external/certificate/pay-control/{certificateId}/activate:
     patch:
       tags:
-        - SigningPCExternal
+        - Электронная подпись
       summary: Активировать сертификат крпитопровайдера PayControl
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=124665414
       parameters:
@@ -5541,7 +5500,7 @@ paths:
   /api/v2/external/certificate/pay-control/{certificateId}/ready-for-accept:
     get:
       tags:
-        - SigningPCExternal
+        - Электронная подпись
       summary: Проверить, можно ли активировать сертификат
       parameters:
         - name: certificateId
@@ -5590,7 +5549,7 @@ paths:
   /api/v2/external/certificate/pay-control/{certificateId}/revoke:
     patch:
       tags:
-        - SigningPCExternal
+        - Электронная подпись
       summary: Отозвать сертификат крпитопровайдера PayControl
       description: https://confluence.artsofte.ru/pages/viewpage.action?pageId=124665422
       parameters:
@@ -5628,7 +5587,7 @@ paths:
   /api/v2/external/certificate/pay-control/{certificateId}/blocking-control:
     patch:
       tags:
-        - SigningPCExternal
+        - Электронная подпись
       summary: Изменить статус сертификата
       parameters:
         - name: certificateId
@@ -5665,7 +5624,7 @@ paths:
   /api/v2/external/certificate/pay-control/{certificateId}/act-acceptance-key:
     get:
       tags:
-        - SigningPCExternal
+        - Электронная подпись
       summary: Получить акт признания ключа для сертификата
       parameters:
         - name: certificateId
@@ -5715,7 +5674,7 @@ paths:
   /api/v2/external/hub/kedo/unit:
     post:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Добавить отдел
       requestBody:
         content:
@@ -5780,7 +5739,7 @@ paths:
   /api/v2/external/hub/kedo/unit/list:
     get:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Получить список отделов
       parameters:
         - name: userGuid
@@ -5828,7 +5787,7 @@ paths:
   /api/v2/external/hub/kedo/unit/{unitId}:
     patch:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Изменить информацию об отделе
       parameters:
         - name: unitId
@@ -5883,7 +5842,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     get:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Получить информацию об отделе
       parameters:
         - name: unitId
@@ -5925,7 +5884,7 @@ paths:
                 $ref: '#/components/schemas/CoreLib.ErrorCode.Controller.Dto.ErrorCodeResponse'
     delete:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Удалить отдел
       parameters:
         - name: unitId
@@ -5965,7 +5924,7 @@ paths:
   /api/v2/external/hub/kedo/unit/{unitId}/employee/by-phone/{employeePhone}:
     put:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Добавить сотрудника в отдел
       parameters:
         - name: unitId
@@ -6004,7 +5963,7 @@ paths:
   /api/v2/external/hub/kedo/unit/{unitId}/employee/{employeePhone}:
     delete:
       tags:
-        - UnitHubKedoExternal
+        - Другие
       summary: Удалить сотрудника из отдела
       parameters:
         - name: unitId
@@ -6043,7 +6002,7 @@ paths:
   /api/v2/external/company/{companyId}:
     patch:
       tags:
-        - VerifiedCompanyExternal
+        - Компании
       summary: Изменение компании
       parameters:
         - name: companyId
@@ -6099,7 +6058,7 @@ paths:
   /api/v2/external/company/verified/list:
     get:
       tags:
-        - VerifiedCompanyExternal
+        - Компании
       summary: Получение списка компаний
       parameters:
         - name: count
@@ -6148,7 +6107,7 @@ paths:
   /api/v2/external/company/verified/search/list:
     get:
       tags:
-        - VerifiedCompanyExternal
+        - Компании
       summary: Получение списка верифицированных компаний по фильтрам
       parameters:
         - name: Inn
@@ -6775,6 +6734,15 @@ components:
           nullable: true
       additionalProperties: false
       description: Выходная модель для <inheritdoc cref="M:Api.Controllers.External.Counterparties.CounterpartiesExternalController.GetCounterpartiesByFlAsync(Api.Controllers.External.Counterparties.Dto.Request.GetCounterpartiesListRequest,CoreLib.Dal.Base.Repositories.Models.CountFilter)" />
+    Api.Controllers.External.Document.Dto.Request.ChangeDraftRequest:
+      type: object
+      properties:
+        title:
+          $ref: '#/components/schemas/Core.Entities.NullWriter.NullWriterClass-1--System.String--System.Private.CoreLib--Version-7.0.0.0--Culture-neutral--PublicKeyToken-7cec85d7bea7798e--'
+        additionalInfo:
+          $ref: '#/components/schemas/Core.Entities.NullWriter.NullWriterClass-1--Api.Controllers.External.Document.Dto.Request.Dto.AdditionalInfoDto--Api--Version-1.0.0.0--Culture-neutral--PublicKeyToken-null--'
+      additionalProperties: false
+      description: Модель для редактирования черновика
     Api.Controllers.External.Document.Dto.Request.ChangeRouteChanginPermissionRequest:
       type: object
       properties:
@@ -7431,12 +7399,12 @@ components:
           description: Список получателей документа
           nullable: true
         additionalInfo:
-          $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Response.GetDocumentInfoResponse_AdditionalInfoDto'
+          $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Response.GetDocumentInfoResponse-AdditionalInfoDto'
         senderInfo:
           $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Response.Dto.DocumentGettingByFilterRecipientResultDto'
       additionalProperties: false
       description: Выходная модель для <inheritdoc cref="M:Api.Controllers.External.Document.DocumentExternalController.GetDocumentInfoAsync(System.Int32)" />
-    Api.Controllers.External.Document.Dto.Response.GetDocumentInfoResponse_AdditionalInfoDto:
+    Api.Controllers.External.Document.Dto.Response.GetDocumentInfoResponse-AdditionalInfoDto:
       type: object
       properties:
         scheme:
@@ -7747,9 +7715,7 @@ components:
           description: Регистрационный номер ЛНА
           nullable: true
         lnaVersion:
-          type: string
-          description: Версия ЛНА
-          nullable: true
+          $ref: '#/components/schemas/Core.Entities.NullWriter.NullWriterClass-1--System.String--System.Private.CoreLib--Version-7.0.0.0--Culture-neutral--PublicKeyToken-7cec85d7bea7798e--'
         expireDateUtc:
           type: string
           description: Дата истечения срока действия ЛНА
@@ -9032,6 +8998,52 @@ components:
           nullable: true
       additionalProperties: false
       description: Выходная модель для <inheritdoc cref="M:Api.Controllers.External.Signing.SigningExternalController.GetListAsync(System.String)" />
+    Core.Entities.NullWriter.NullWriterClass-1--Api.Controllers.External.Document.Dto.Request.Dto.AdditionalInfoDto--Api--Version-1.0.0.0--Culture-neutral--PublicKeyToken-null--:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/Api.Controllers.External.Document.Dto.Request.Dto.AdditionalInfoDto'
+        getValue:
+          nullable: true
+          readOnly: true
+        isValidWriteNull:
+          type: boolean
+          description: Нужно ли воспринимат null как консистентное состояние
+          default: false
+      additionalProperties: false
+      description: Сущность для работы с сылочными типами
+    Core.Entities.NullWriter.NullWriterClass-1--CoreLib.Entities.Models.EmailEntity.Email--CoreLib--Version-1.0.0.0--Culture-neutral--PublicKeyToken-null--:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Значение/состояниеx
+          nullable: true
+        getValue:
+          nullable: true
+          readOnly: true
+        isValidWriteNull:
+          type: boolean
+          description: Нужно ли воспринимат null как консистентное состояние
+          default: false
+      additionalProperties: false
+      description: Сущность для работы с сылочными типами
+    Core.Entities.NullWriter.NullWriterClass-1--System.String--System.Private.CoreLib--Version-7.0.0.0--Culture-neutral--PublicKeyToken-7cec85d7bea7798e--:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Значение/состояниеx
+          nullable: true
+        getValue:
+          nullable: true
+          readOnly: true
+        isValidWriteNull:
+          type: boolean
+          description: Нужно ли воспринимат null как консистентное состояние
+          default: false
+      additionalProperties: false
+      description: Сущность для работы с сылочными типами
     CoreLib.Dal.Base.Repositories.Models.CountFilter:
       type: object
       properties:
